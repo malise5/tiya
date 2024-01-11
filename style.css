@@ -2,25 +2,25 @@ body {
     font-family: "Arial", sans-serif;
     margin: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f7f7f7;
-    position: relative;
-    overflow: hidden;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.background-animation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.5;
-    pointer-events: none;
-    animation: romanticBackground 20s linear infinite;
-    background: radial-gradient(ellipse at center, #ffeadb 0%, #f7d9aa 100%);
+.navbar {
+    background-color: #e44d26;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.moving-text {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.apology-text {
+    display: inline-block;
+    animation: moveText 15s linear infinite;
 }
 
 .container {
@@ -32,6 +32,7 @@ body {
     animation: fadeInUp 1s ease-in-out;
     max-width: 600px; /* Set a maximum width for better readability on larger screens */
     width: 100%;
+    margin: 20px auto;
 }
 
 h1 {
@@ -61,11 +62,21 @@ p {
     line-height: 1.5;
 }
 
-/* Responsive Styles */
-@media only screen and (max-width: 600px) {
-    .container {
-        padding: 10px;
-    }
+.background-animation {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    animation: romanticBackground 20s linear infinite;
+    background: radial-gradient(ellipse at center, #ffeadb 0%, #f7d9aa 100%);
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #e44d26;
+    color: #fff;
+    margin-top: auto;
 }
 
 @keyframes fadeInUp {
@@ -76,6 +87,15 @@ p {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
     }
 }
 
